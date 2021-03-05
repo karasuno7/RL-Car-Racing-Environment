@@ -53,6 +53,12 @@ end
 scenarioFcnHandle = str2func(scenarioFcnName);
 [scenario, egoVehicle] = scenarioFcnHandle();
 
+numActors = length(scenario.Actors);
+numTargetActors = max([numActors-1 1]);
+[BusActors1, BusActors1Actors] = BusActorsSetup(numTargetActors);
+MaxNumLaneBound = 2;
+[BusLaneBoundaries1, BusLaneBoundaries1LaneBoundaries] = BusLaneBoundSetup(MaxNumLaneBound);
+[BusVision, BusVisionLaneBoundaries] = BusLaneVisionSetup(MaxNumLaneBound);
 % You can use Driving Scenario Designer to explore the scenario
 % drivingScenarioDesigner(scenario)
 % drivingScenarioDesigner('LKATestBenchScenario')
